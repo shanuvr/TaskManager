@@ -1,0 +1,20 @@
+{
+  "name": "Test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97"
+  }
+}
