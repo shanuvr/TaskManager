@@ -50,7 +50,7 @@ class TaskController {
     try {
       const { title, description } = req.body;
       if (!title) {
-        return res.status(400).json({ message: "Title is required" });
+        return res.json({ message: "Title is required" });
       }
 
       const task = new Task({ title, description });
