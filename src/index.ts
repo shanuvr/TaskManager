@@ -54,9 +54,9 @@ class TaskController {
       }
 
       const task = new Task({ title, description });
-      const savedTask = await task.save();
+      const savedTask = await Task.insertOne(task)
 
-      res.status(201).json({ message: "Task added successfully", task: savedTask });
+      res.json({ message: "Task added successfully" });
     } catch (error) {
       res.json({ message: "Server error" });
     }
@@ -66,7 +66,7 @@ class TaskController {
     try {
       const tasks = await Task.find();
       if (tasks.length === 0) {
-        return res.status(200).json({ message: "No tasks found" });
+        return res.json({ message: "No tasks found" });
       }
       res.json({ tasks });
     } catch (error) {
@@ -81,8 +81,8 @@ class TaskController {
 
       const updatedTask = await Task.findByIdAndUpdate(
         id,
-        { title, description, completed },
-        { new: true }
+        { title, description, completed }
+     
       );
 
       res.json({ message: "Task updated successfully" });
@@ -116,6 +116,3 @@ app.delete("/tasks/:id", taskController.delete);
 
 
 
-
-
-//j
